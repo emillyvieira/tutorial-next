@@ -1,19 +1,23 @@
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
 import MainContent from '@/components/MainContent';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
-import { useState } from 'react';
 
 function App() {
-  const [contador, setContador] =  useState(3)
+  const [valor1, setValor1] = useState(0);
+  const [valor2, setValor2] = useState(0);
+  const [resultado, setResultado] = useState(0);
+  const [nome, setNome] = useState('Emilly');
+  const [nome2, setNome2] = useState('Novo nome...');
+  const [contador, setContador] = useState(0); // Adicionando o estado contador
 
-  console.log("Carregando...")
-  
+  console.log("Carregando...");
+
   return (
-    <div className="App flex flex-col min-h-screen bg-off-white text-purple-800">
+    <div className="App flex flex-col min-h-screen bg-off-white text-black">
       <Header />
       <div className="flex flex-1 p-4">
         <div className="w-1/4 mr-4">
@@ -21,17 +25,11 @@ function App() {
         </div>
         <div className="w-3/4">
           <MainContent />
-          <h2>Contador</h2>
-          <p>{contador}</p>
-          <button className='border p-2 ' onClick={() => {
-            setContador(contador + 1 ) 
-            console.log(contador)
-          }}>+1</button>
 
         </div>
+
       </div>
       <Footer />
-
     </div>
   );
 }
